@@ -8,14 +8,177 @@
 import SwiftUI
 
 struct ContentView: View {
+    var testModel = CharacterControllModel()
+    var charas : [String] = ["おたま", "済王", "ヴァンパイアレディ"]
     var body: some View {
-        Text("Hello, world!")
+        NavigationView {
+            List {
+                ForEach (charas, id: \.self) { chara in
+                    NavigationLink(destination: DetailView(character: chara)) {
+                        Text(chara)
+                    }
+                }
+            }
+            .listStyle(PlainListStyle())
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Romancing Saga RS 育成メモ")
+            .navigationBarItems(
+                trailing:
+                    Button(action: {
+                        testModel.getCharacter()
+                    }) {
+                        Text("追加")
+                            .font(
+                                .system(
+                                    size: 18,
+                                    weight: .heavy,
+                                    design: .rounded
+                                )
+                            )
+                    }
+            )
+        }
+    }
+    
+    struct DetailView : View {
+        let character : String
+        @State private var hitPoint: Int = 0
+        var body: some View {
+            VStack {
+                Text(character + "のステータス")
+                    .font(
+                        .system(
+                            size: 20,
+                            weight: .heavy,
+                            design: .rounded
+                        )
+                    )
+                    .frame(
+                        maxWidth: .infinity,
+                        alignment: .leading
+                    )
+                HStack {
+                    Text("ＨＰ：")
+                        .fontWeight(.heavy)
+                        .frame(
+                            maxWidth: .infinity,
+                            alignment: .leading
+                        )
+                    Stepper(value: $hitPoint, in: 0...9999) {
+                        Text(String(hitPoint))
+                    }
+                }
+                HStack {
+                    Text("腕力：")
+                        .fontWeight(.heavy)
+                        .frame(
+                            maxWidth: .infinity,
+                            alignment: .leading
+                        )
+                    Stepper(value: $hitPoint, in: 0...9999) {
+                        Text(String(hitPoint))
+                    }
+                }
+                HStack {
+                    Text("体力：")
+                        .fontWeight(.heavy)
+                        .frame(
+                            maxWidth: .infinity,
+                            alignment: .leading
+                        )
+                    Stepper(value: $hitPoint, in: 0...9999) {
+                        Text(String(hitPoint))
+                    }
+                }
+                HStack {
+                    Text("器用さ：")
+                        .fontWeight(.heavy)
+                        .frame(
+                            maxWidth: .infinity,
+                            alignment: .leading
+                        )
+                    Stepper(value: $hitPoint, in: 0...9999) {
+                        Text(String(hitPoint))
+                    }
+                }
+                HStack {
+                    Text("素早さ：")
+                        .fontWeight(.heavy)
+                        .frame(
+                            maxWidth: .infinity,
+                            alignment: .leading
+                        )
+                    Stepper(value: $hitPoint, in: 0...9999) {
+                        Text(String(hitPoint))
+                    }
+                }
+                HStack {
+                    Text("知力：")
+                        .fontWeight(.heavy)
+                        .frame(
+                            maxWidth: .infinity,
+                            alignment: .leading
+                        )
+                    Stepper(value: $hitPoint, in: 0...9999) {
+                        Text(String(hitPoint))
+                    }
+                }
+                HStack {
+                    Text("精神：")
+                        .fontWeight(.heavy)
+                        .frame(
+                            maxWidth: .infinity,
+                            alignment: .leading
+                        )
+                    Stepper(value: $hitPoint, in: 0...9999) {
+                        Text(String(hitPoint))
+                    }
+                }
+
+                HStack {
+                    Text("愛：")
+                        .fontWeight(.heavy)
+                        .frame(
+                            maxWidth: .infinity,
+                            alignment: .leading
+                        )
+                    Stepper(value: $hitPoint, in: 0...9999) {
+                        Text(String(hitPoint))
+                    }
+                }
+                HStack {
+                    Text("魅力：")
+                        .fontWeight(.heavy)
+                        .frame(
+                            maxWidth: .infinity,
+                            alignment: .leading
+                        )
+                    Stepper(value: $hitPoint, in: 0...9999) {
+                        Text(String(hitPoint))
+                    }
+                }
+            }
             .padding()
+            Button(action: {
+                // do something
+            }) {
+                Text("保存")
+                    .font(
+                        .system(
+                            size: 20,
+                            weight: .heavy,
+                            design: .rounded
+                        )
+                    )
+            }
+            Spacer()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
     }
 }

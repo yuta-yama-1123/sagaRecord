@@ -1,0 +1,6 @@
+framework module Pods_sagaRecord {
+  umbrella header "Pods-sagaRecord-umbrella.h"
+
+  export *
+  module * { export * }
+}

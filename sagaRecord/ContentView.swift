@@ -30,7 +30,7 @@ struct ContentView: View {
             .navigationBarItems(
                 trailing:
                     Button(action: {
-                        testModel.getCharacter()
+                        testModel.postAddTest()
                     }) {
                         Text("追加")
                             .font(

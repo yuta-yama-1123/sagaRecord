@@ -13,7 +13,6 @@ import SystemConfiguration
 class CharacterControllModel{
     var response: String = ""
     var names: [CharactersModel.Names] = []
-    var semaphore : DispatchSemaphore!
     struct TestStruct: Decodable {
         var id: Int
         var name: String
@@ -95,6 +94,40 @@ class CharacterControllModel{
                     self.response = text
                 }
                 self.getName()
+            }
+    }
+    
+    /*
+     * testテーブルへのinsertお試し。
+     * 試すこと。
+     * ・POSTリクエストでパラメータとしてJSONを渡す
+     * ・その内容を受け取ってnodejs側でテーブルにinsertする
+     */
+    func postAddTest() {
+        // TODO 定数系のものはどこかに外出ししたい。
+        let requestUrl = "https://nodejs-api-dev1123.herokuapp.com/addTest"
+        let param: Parameters = [
+            "name": "addTestFromSwift"
+        ]
+        let headers: HTTPHeaders = [
+            "Content-Type":"application/x-www-form-urlencoded; charset=UTF-8"
+        ]
+        AF // Alamofire
+            .request(
+                requestUrl,
+                method: .post,
+                parameters: param,
+                encoding: URLEncoding.httpBody,
+                headers: headers
+            )
+            .validate(statusCode: 200..<300)
+            .responseData { response in
+                switch response.result {
+                    case .success(let data):
+                        print("response:\(String(data: data, encoding: .utf8)!)")
+                    case .failure(let error):
+                        print("error:\(error)")
+                }
             }
     }
 }

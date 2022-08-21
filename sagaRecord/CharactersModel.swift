@@ -34,4 +34,9 @@ class CharactersModel{
     struct Characters: Decodable {
         var characters: [Character]
     }
+    
+    struct Names {
+        var id: String
+        var name: String
+    }
 }

@@ -9,13 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var testModel = CharacterControllModel()
-    var charas : [String] = ["おたま", "済王", "ヴァンパイアレディ"]
+    
+    // 初期表示時処理
+    init() {
+        // キャラ名の一覧取得
+        testModel.getCharNames()
+    }
     var body: some View {
         NavigationView {
             List {
-                ForEach (charas, id: \.self) { chara in
-                    NavigationLink(destination: DetailView(character: chara)) {
-                        Text(chara)
+                ForEach(testModel.names, id: \.self.id) { name in
+                    NavigationLink(destination: DetailView(character: name)) {
+                        Text(name.name)
                     }
                 }
             }
@@ -41,11 +46,11 @@ struct ContentView: View {
     }
     
     struct DetailView : View {
-        let character : String
+        let character : CharactersModel.Names
         @State private var hitPoint: Int = 0
         var body: some View {
             VStack {
-                Text(character + "のステータス")
+                Text(character.name + "のステータス")
                     .font(
                         .system(
                             size: 20,

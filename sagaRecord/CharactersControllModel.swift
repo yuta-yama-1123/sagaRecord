@@ -12,6 +12,19 @@ import SystemConfiguration
 // キャラクター情報を取得したり保存したり。
 class CharacterControllModel{
     var response: String = ""
+    var names: [CharactersModel.Names] = []
+    var semaphore : DispatchSemaphore!
+    struct TestStruct: Decodable {
+        var id: Int
+        var name: String
+        var update_at: String? // nullable
+    }
+    struct Users: Decodable {
+        var users: [TestStruct]
+    }
+    struct UsersTest: Decodable {
+        var users: Users
+    }
     
     func getName() -> String {
         do {
@@ -23,6 +36,45 @@ class CharacterControllModel{
             print("fail")
         }
         return "fail"
+    }
+    func getDBSuccess() {
+        do {
+            let testJson = response.data(using: .utf8)!
+            let decodedData = try JSONDecoder().decode(Users.self, from: testJson)
+            print(decodedData.users[0].name)
+        } catch {
+            print("fail")
+        }
+    }
+    
+    func getCharNames() -> [CharactersModel.Names] {
+
+        let requestUrl = "https://nodejs-api-dev1123.herokuapp.com/db"
+        AF // Alamofire
+            .request(
+                requestUrl,
+                method: .get,
+                headers: HTTPHeaders.default
+            )
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                switch response.result {
+                    case .success(let data):
+                        self.response = String(data: data, encoding: .utf8)!
+                        self.getDBSuccess()
+                    case .failure(let error):
+                        print("error:\(error)")
+                }
+            }
+
+        names.append(CharactersModel.Names(id: "1", name: "済王"))
+        names.append(CharactersModel.Names(id: "2", name: "ヴァンパイアレディ"))
+        names.append(CharactersModel.Names(id: "3", name: "おたま"))
+        names.append(CharactersModel.Names(id: "4", name: "ラベール"))
+        names.append(CharactersModel.Names(id: "5", name: "タチアナ"))
+        return names
+
     }
     
     func getCharacter() {

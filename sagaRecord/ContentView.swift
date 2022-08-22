@@ -139,29 +139,8 @@ struct ContentView: View {
                         Text(String(hitPoint))
                     }
                 }
-
-                HStack {
-                    Text("愛：")
-                        .fontWeight(.heavy)
-                        .frame(
-                            maxWidth: .infinity,
-                            alignment: .leading
-                        )
-                    Stepper(value: $hitPoint, in: 0...9999) {
-                        Text(String(hitPoint))
-                    }
-                }
-                HStack {
-                    Text("魅力：")
-                        .fontWeight(.heavy)
-                        .frame(
-                            maxWidth: .infinity,
-                            alignment: .leading
-                        )
-                    Stepper(value: $hitPoint, in: 0...9999) {
-                        Text(String(hitPoint))
-                    }
-                }
+                StatusStepperView(title: "愛", param: 100)
+                StatusStepperView(title: "魅力", param: 100)
             }
             .padding()
             Button(action: {

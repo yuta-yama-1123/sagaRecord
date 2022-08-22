@@ -11,6 +11,7 @@ import SystemConfiguration
 
 // キャラクター情報を取得したり保存したり。
 class CharacterControllModel{
+    var constant = ConstantValuesModel()
     var response: String = ""
     var names: [CharactersModel.Names] = []
     struct TestStruct: Decodable {
@@ -48,7 +49,7 @@ class CharacterControllModel{
     
     func getCharNames() -> [CharactersModel.Names] {
 
-        let requestUrl = "https://nodejs-api-dev1123.herokuapp.com/db"
+        let requestUrl = constant.apiDomain + "/db"
         AF // Alamofire
             .request(
                 requestUrl,
@@ -77,7 +78,7 @@ class CharacterControllModel{
     }
     
     func getCharacter() {
-        let requestUrl = "https://nodejs-api-dev1123.herokuapp.com/getCharacter"
+        let requestUrl = constant.apiDomain +  "/getCharacter"
         let param: Parameters = [
             "id": "1234"
         ]
@@ -100,12 +101,12 @@ class CharacterControllModel{
     /*
      * testテーブルへのinsertお試し。
      * 試すこと。
-     * ・POSTリクエストでパラメータとしてJSONを渡す
+     * ・POSTリクエストでHttpBodyでJSONパラメータを渡す
      * ・その内容を受け取ってnodejs側でテーブルにinsertする
      */
     func postAddTest() {
         // TODO 定数系のものはどこかに外出ししたい。
-        let requestUrl = "https://nodejs-api-dev1123.herokuapp.com/addTest"
+        let requestUrl = constant.apiDomain + "/addTest"
         let param: Parameters = [
             "name": "addTestFromSwift"
         ]

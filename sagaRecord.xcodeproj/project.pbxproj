@@ -16,6 +16,8 @@
 		033FEFF928B0E6BA0093F709 /* sagaRecordUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033FEFF828B0E6BA0093F709 /* sagaRecordUITestsLaunchTests.swift */; };
 		033FF00628B0EEB30093F709 /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033FF00528B0EEB30093F709 /* CharactersModel.swift */; };
 		033FF00828B112120093F709 /* CharactersControllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033FF00728B112120093F709 /* CharactersControllModel.swift */; };
+		033FF00B28B3E8D20093F709 /* ConstantValuesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033FF00A28B3E8D20093F709 /* ConstantValuesModel.swift */; };
+		033FF00D28B3EA970093F709 /* StatusStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033FF00C28B3EA970093F709 /* StatusStepperView.swift */; };
 		36D33CD9DEB2AA1B0DEBB870 /* Pods_sagaRecord_sagaRecordUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B6424217322169BE31C674 /* Pods_sagaRecord_sagaRecordUITests.framework */; };
 		67395AEE74F5483E22451BD0 /* Pods_sagaRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C282503C022A3A55092AAD12 /* Pods_sagaRecord.framework */; };
 		F4A766A94B02AB17F10C4826 /* Pods_sagaRecordTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E08360F823C442F197AC3E /* Pods_sagaRecordTests.framework */; };
@@ -52,6 +54,8 @@
 		033FF00528B0EEB30093F709 /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
 		033FF00728B112120093F709 /* CharactersControllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersControllModel.swift; sourceTree = "<group>"; };
 		033FF00928B14C970093F709 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		033FF00A28B3E8D20093F709 /* ConstantValuesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantValuesModel.swift; sourceTree = "<group>"; };
+		033FF00C28B3EA970093F709 /* StatusStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusStepperView.swift; sourceTree = "<group>"; };
 		40B72E678110592B35FC352A /* Pods-sagaRecord.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sagaRecord.debug.xcconfig"; path = "Target Support Files/Pods-sagaRecord/Pods-sagaRecord.debug.xcconfig"; sourceTree = "<group>"; };
 		451E977396C0280A3FD41C85 /* Pods-sagaRecord-sagaRecordUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sagaRecord-sagaRecordUITests.release.xcconfig"; path = "Target Support Files/Pods-sagaRecord-sagaRecordUITests/Pods-sagaRecord-sagaRecordUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A0DB29C9E3A5ACF6CD3A8D1E /* Pods-sagaRecordTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sagaRecordTests.debug.xcconfig"; path = "Target Support Files/Pods-sagaRecordTests/Pods-sagaRecordTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,8 +123,10 @@
 				033FF00928B14C970093F709 /* Info.plist */,
 				033FEFDB28B0E6B90093F709 /* sagaRecordApp.swift */,
 				033FEFDD28B0E6B90093F709 /* ContentView.swift */,
+				033FF00C28B3EA970093F709 /* StatusStepperView.swift */,
 				033FF00528B0EEB30093F709 /* CharactersModel.swift */,
 				033FF00728B112120093F709 /* CharactersControllModel.swift */,
+				033FF00A28B3E8D20093F709 /* ConstantValuesModel.swift */,
 				033FEFDF28B0E6BA0093F709 /* Assets.xcassets */,
 				033FEFE128B0E6BA0093F709 /* Preview Content */,
 			);
@@ -413,9 +419,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				033FF00D28B3EA970093F709 /* StatusStepperView.swift in Sources */,
 				033FF00628B0EEB30093F709 /* CharactersModel.swift in Sources */,
 				033FEFDE28B0E6B90093F709 /* ContentView.swift in Sources */,
 				033FF00828B112120093F709 /* CharactersControllModel.swift in Sources */,
+				033FF00B28B3E8D20093F709 /* ConstantValuesModel.swift in Sources */,
 				033FEFDC28B0E6B90093F709 /* sagaRecordApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
